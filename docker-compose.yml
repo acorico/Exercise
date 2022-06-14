@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  demo-database:
+    image: bitnami/postgresql
+    container_name: "pgsql_container"
+    networks:
+      static-network:
+        ipv4_address: 172.20.0.6
+    ports: 
+      - "5432:5432"
+    environment: 
+      - POSTGRES_PASSWORD=pass_pgsql
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
